@@ -18,7 +18,7 @@ function checkOne(myCheckbox, value){
   }
 
   // LIMITE DE CHECKBOX SELECT
-  if(array.length > 2){
+  if(array.length > 100){
     alert.innerHTML = "Sobrepasastes el limite"
     btn1.href = `#`;
     btn2.href = `#`;

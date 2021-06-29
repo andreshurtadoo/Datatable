@@ -6,29 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="/style.css">
     <title>Data Tables</title>
   </head>
   <body>
 
-    <div class="container p-4" style="width:80%">
+    <main>
+
+    <div class="container">
 
         <table id="example" class="table table-striped">
-
             <thead class="bg-dark text-light">
-                <%  let key = Object.keys(resultados[0]) %>
                 <tr>
                     <th>Check</th>
-                    <th> <%= key[0] %> </th>
-                    <th> <%= key[1] %></th>
-                    <th> <%= key[2] %></th>
-                    <th> <%= key[3] %></th>
-                    <th> <%= key[4] %></th>
-                    <th> <%= key[5] %></th>
-                    <th>
-                        <a href="/create" class="btn btn-light">Create</a> 
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Pais</th>
+                    <th>Posicion</th>
+                    <th>Codigo de Equipo</th>
+                    <th class="text-center">
+                       Accion
                     </th>
                 </tr>
-                <%  %>
             </thead>
             
             <tbody>
@@ -41,14 +41,13 @@
                         <td><%= user.Pais %> </td>
                         <td><%= user.Posicion %> </td>
                         <td><%= user.COD_Equipo %> </td>
-                        <td>
+                        <td class="text-center">
                             <a href="/edit/<%= user.ID %>"      class="btn btn-outline-secondary" >Update</a>
-                            <a href="/desactivo/<%= user.ID %>" class="btn btn-outline-danger" id="delete" onclick="veryDelete()">delete</a>
+                            <a href="/desactive/<%= user.ID %>" class="btn btn-outline-danger" id="delete" onclick="veryDelete()">Delete</a>
                         </td>
                     </tr>
                 <% }) %>        
             </tbody>
-
         </table>
 
         <section class="container">
@@ -65,9 +64,11 @@
 
                     <div class="col">
                         <div>
+                            <a href="/create" class="btn btn-dark ">Create </a> 
+
                             <a href="#" class="btn btn-secondary" id="UpdateCheck" >Update</a>
-                            <a href="#"  class="btn btn-danger" id="deleteCheck" onclick="verifyCation()">Delete</a>
-                            <a href="/eliminados" class="btn btn-primary " id="eliminados" >Eliminados</a>
+                            <a href="#" class="btn btn-danger" id="deleteCheck" onclick="verifyCation()">Delete</a>
+                            <a href="/eliminados" class="btn btn-primary" id="eliminados" >Eliminated</a>
                         </div>
                     </div>
 
@@ -84,6 +85,9 @@
         </section>
     
     </div>
+
+    </main>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
